@@ -16,4 +16,5 @@ if [ -z `which yarn` ]; then
 fi
 
 # lint & fix staged files
+yarn lint
 yarn lint-staged
