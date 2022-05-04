@@ -4,6 +4,7 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "csstools.postcss",
-    "jayfong.generate-index"
+    "jayfong.generate-index",
+    "bradlc.vscode-tailwindcss"
   ]
 }
