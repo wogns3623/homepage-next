@@ -41,3 +41,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# next_env.d.ts for svg type
+next_env.d.ts

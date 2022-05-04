@@ -1,4 +1,7 @@
 import Head from 'next/head';
+import Image from 'next/image';
+
+import VercelLogo from '../public/vercel.svg';
 
 export default function Home() {
   return (
@@ -66,7 +69,7 @@ export default function Home() {
           href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
           target='_blank'
           rel='noopener noreferrer'>
-          Powered by <img src='/vercel.svg' alt='Vercel Logo' className='h-4 ml-2' />
+          Powered by <VercelLogo viewBox='0 0 283 64' className='h-4 w-min ml-2' />
         </a>
       </footer>
     </div>
