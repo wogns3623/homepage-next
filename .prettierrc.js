@@ -1,5 +1,8 @@
 module.exports = {
-  plugins: [require('@trivago/prettier-plugin-sort-imports'), require('prettier-plugin-tailwindcss')],
+  plugins: [
+    require('prettier-plugin-tailwindcss'),
+    require('@trivago/prettier-plugin-sort-imports'),
+  ],
   arrowParens: 'avoid',
   jsxSingleQuote: true,
   bracketSameLine: true,
@@ -13,10 +16,11 @@ module.exports = {
   endOfLine: 'auto',
   importOrder: [
     '^react$',
-    '^next/(.*)$',
+    '^next/(.+)',
     '<THIRD_PARTY_MODULES>',
 
     // business logic & apis
+    '^@hooks(.*)$',
 
     // components
     '^@(?:components|styles)(.*)$',
