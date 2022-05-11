@@ -35,6 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@svgr/webpack", "npm:6.2.1"],\
             ["@trivago/prettier-plugin-sort-imports", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:3.2.0"],\
+            ["@types/lodash", "npm:4.14.182"],\
             ["@types/node", "npm:17.0.31"],\
             ["@types/react", "npm:18.0.8"],\
             ["@types/react-dom", "npm:18.0.3"],\
@@ -48,6 +49,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:4.0.0"],\
             ["husky", "npm:7.0.4"],\
             ["lint-staged", "npm:12.4.1"],\
+            ["lodash", "npm:4.17.21"],\
             ["next", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:12.1.6"],\
             ["postcss", "npm:8.4.13"],\
             ["prettier", "npm:2.6.2"],\
@@ -3292,6 +3294,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/lodash", [\
+        ["npm:4.14.182", {\
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.182-1073aac722-7dd137aa9d.zip/node_modules/@types/lodash/",\
+          "packageDependencies": [\
+            ["@types/lodash", "npm:4.14.182"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/node", [\
         ["npm:17.0.31", {\
           "packageLocation": "./.yarn/cache/@types-node-npm-17.0.31-d8d26aa013-704618350f.zip/node_modules/@types/node/",\
@@ -6107,6 +6118,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["homepage-next", "workspace:."],\
             ["@svgr/webpack", "npm:6.2.1"],\
             ["@trivago/prettier-plugin-sort-imports", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:3.2.0"],\
+            ["@types/lodash", "npm:4.14.182"],\
             ["@types/node", "npm:17.0.31"],\
             ["@types/react", "npm:18.0.8"],\
             ["@types/react-dom", "npm:18.0.3"],\
@@ -6120,6 +6132,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:4.0.0"],\
             ["husky", "npm:7.0.4"],\
             ["lint-staged", "npm:12.4.1"],\
+            ["lodash", "npm:4.17.21"],\
             ["next", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:12.1.6"],\
             ["postcss", "npm:8.4.13"],\
             ["prettier", "npm:2.6.2"],\
