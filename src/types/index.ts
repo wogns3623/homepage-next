@@ -17,4 +17,5 @@ export interface Post {
   date: number;
   openGraph: OpenGraph;
   content: MDXRemoteSerializeResult;
+  tags?: string[];
 }

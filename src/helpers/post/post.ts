@@ -67,10 +67,22 @@ export async function getPost(paths: string[]): Promise<Post> {
 
     const content = await serialize(await fs.readFile(filePath, 'utf8'), {
       mdxOptions: { remarkPlugins: [remarkGFM] },
+      parseFrontmatter: true,
     });
 
-    // TODO: get title of post from file
-    const title = 'Title';
+    if (typeof content.frontmatter !== 'object' || Array.isArray(content.frontmatter)) {
+      throw new Error('Metadata is not an object');
+    }
+
+    const {
+      title = 'Untitled',
+      author = '',
+      tags = [],
+    } = content.frontmatter as {
+      title: string;
+      author?: string;
+      tags?: string[];
+    };
 
     return {
       slug,
@@ -83,8 +95,10 @@ export async function getPost(paths: string[]): Promise<Post> {
         image: '',
         url: `https://${HOST}/blog/${paths.join('/')}`,
       },
-      title,
       content,
+      title,
+      author,
+      tags,
     };
   } catch (e: any) {
     if (e.code !== 'ENOENT') {
