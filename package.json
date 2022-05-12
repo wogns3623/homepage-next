@@ -23,6 +23,7 @@
   "devDependencies": {
     "@mdx-js/loader": "^2.1.1",
     "@svgr/webpack": "^6.2.1",
+    "@tailwindcss/typography": "^0.5.2",
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/lodash": "^4",
     "@types/mdx": "^2.0.1",

@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mdx-js/react", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:2.1.1"],\
             ["@next/mdx", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:12.1.6"],\
             ["@svgr/webpack", "npm:6.2.1"],\
+            ["@tailwindcss/typography", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:0.5.2"],\
             ["@trivago/prettier-plugin-sort-imports", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:3.2.0"],\
             ["@types/lodash", "npm:4.14.182"],\
             ["@types/mdx", "npm:2.0.1"],\
@@ -3294,6 +3295,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@tailwindcss/typography", [\
+        ["npm:0.5.2", {\
+          "packageLocation": "./.yarn/cache/@tailwindcss-typography-npm-0.5.2-2bf38a38ad-f6c27e32c9.zip/node_modules/@tailwindcss/typography/",\
+          "packageDependencies": [\
+            ["@tailwindcss/typography", "npm:0.5.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:0.5.2", {\
+          "packageLocation": "./.yarn/__virtual__/@tailwindcss-typography-virtual-79a1aea3a3/0/cache/@tailwindcss-typography-npm-0.5.2-2bf38a38ad-f6c27e32c9.zip/node_modules/@tailwindcss/typography/",\
+          "packageDependencies": [\
+            ["@tailwindcss/typography", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:0.5.2"],\
+            ["@types/tailwindcss", null],\
+            ["lodash.castarray", "npm:4.4.0"],\
+            ["lodash.isplainobject", "npm:4.0.6"],\
+            ["lodash.merge", "npm:4.6.2"],\
+            ["tailwindcss", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:3.0.24"]\
+          ],\
+          "packagePeers": [\
+            "@types/tailwindcss",\
+            "tailwindcss"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@tootallnate/once", [\
         ["npm:2.0.0", {\
           "packageLocation": "./.yarn/cache/@tootallnate-once-npm-2.0.0-e36cf4f140-ad87447820.zip/node_modules/@tootallnate/once/",\
@@ -6535,6 +6561,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mdx-js/react", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:2.1.1"],\
             ["@next/mdx", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:12.1.6"],\
             ["@svgr/webpack", "npm:6.2.1"],\
+            ["@tailwindcss/typography", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:0.5.2"],\
             ["@trivago/prettier-plugin-sort-imports", "virtual:689c3da05dc1e8a380f712e0a3a1c276afef55af3e3704b098fca10bf9c59899af2fd786e1edb61433815d48f73d619aa0a658cc5075441bfd3788ca0f2f7ddd#npm:3.2.0"],\
             ["@types/lodash", "npm:4.14.182"],\
             ["@types/mdx", "npm:2.0.1"],\
@@ -7295,11 +7322,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["lodash.castarray", [\
+        ["npm:4.4.0", {\
+          "packageLocation": "./.yarn/cache/lodash.castarray-npm-4.4.0-f3706198e9-fca8c7047e.zip/node_modules/lodash.castarray/",\
+          "packageDependencies": [\
+            ["lodash.castarray", "npm:4.4.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["lodash.debounce", [\
         ["npm:4.0.8", {\
           "packageLocation": "./.yarn/cache/lodash.debounce-npm-4.0.8-f1d6e09799-a3f527d22c.zip/node_modules/lodash.debounce/",\
           "packageDependencies": [\
             ["lodash.debounce", "npm:4.0.8"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["lodash.isplainobject", [\
+        ["npm:4.0.6", {\
+          "packageLocation": "./.yarn/cache/lodash.isplainobject-npm-4.0.6-d73937742f-29c6351f28.zip/node_modules/lodash.isplainobject/",\
+          "packageDependencies": [\
+            ["lodash.isplainobject", "npm:4.0.6"]\
           ],\
           "linkType": "HARD"\
         }]\
