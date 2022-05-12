@@ -1,5 +1,12 @@
 // @ts-check
 
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    providerImportSource: '@mdx-js/react',
+  },
+});
+
 /**
  * @type {import('next').NextConfig}
  **/
@@ -15,24 +22,10 @@ const nextConfig = {
       use: ['@svgr/webpack'],
     });
 
-    config.module.rules.push({
-      test: /\.mdx?$/i,
-      use: [
-        options.defaultLoaders.babel,
-        {
-          loader: '@mdx-js/loader',
-          /** @type {import('@mdx-js/loader').Options} */
-          options: {
-            providerImportSource: '@mdx-js/react',
-          },
-        },
-      ],
-    });
-
     return config;
   },
 
   reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+module.exports = withMDX(nextConfig);
