@@ -10,6 +10,8 @@
     "prepack": "./scripts/prepack"
   },
   "dependencies": {
+    "@mdx-js/mdx": "^2.1.1",
+    "@mdx-js/react": "^2.1.1",
     "antd": "^4.20.2",
     "lodash": "^4.17.21",
     "next": "12.1.6",
@@ -17,6 +19,7 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "@mdx-js/loader": "^2.1.1",
     "@svgr/webpack": "^6.2.1",
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/lodash": "^4",
