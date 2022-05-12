@@ -1,6 +1,6 @@
 import { Layout as AntdLayout } from 'antd';
 
-import VercelLogo from '@public/vercel.svg';
+import VercelLogo from '@public/images/vercel.svg';
 
 const { Footer: AntdFooter } = AntdLayout;
 
