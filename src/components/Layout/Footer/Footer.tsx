@@ -1,12 +1,10 @@
-import { Router } from 'next/router';
-
 import { Layout as AntdLayout } from 'antd';
 
 import VercelLogo from '@public/vercel.svg';
 
 const { Footer: AntdFooter } = AntdLayout;
 
-export default function Footer({ router }: { router: Router }) {
+export default function Footer() {
   return (
     <AntdFooter className='flex h-24 w-full items-center justify-center border-t'>
       <a

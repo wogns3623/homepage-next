@@ -21,7 +21,7 @@ module.exports = {
     '<THIRD_PARTY_MODULES>',
 
     // business logic & apis
-    '^@hooks(.*)$',
+    '^@(?:hooks|utils)(.*)$',
 
     // components
     '^@(?:components|styles)(.*)$',
