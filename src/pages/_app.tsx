@@ -7,7 +7,7 @@ import { DarkModeProvider } from '@hooks/common/useDarkMode';
 import { Layout } from '@components/Layout';
 import '@styles/globals.css';
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+export default function CustomApp({ Component, pageProps, router }: AppProps) {
   return (
     <DarkModeProvider>
       <Layout router={router}>
@@ -16,5 +16,3 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     </DarkModeProvider>
   );
 }
-
-export default MyApp;
