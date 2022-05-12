@@ -17,11 +17,11 @@ module.exports = {
   endOfLine: 'auto',
   importOrder: [
     '^react$',
-    '^next/(.+)',
+    '^(next|next/.+)$',
     '<THIRD_PARTY_MODULES>',
 
     // business logic & apis
-    '^@(?:hooks|utils)(.*)$',
+    '^@(?:hooks|helpers|utils|types)(.*)$',
 
     // components
     '^@(?:components|styles)(.*)$',

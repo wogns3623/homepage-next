@@ -158,9 +158,9 @@ export default function Header() {
   return (
     <header className={cls`fixed z-20 flex h-12 w-full justify-center`}>
       <div
-        className={cls`relative z-20 box-border flex h-full max-w-screen-xl flex-1 justify-between bg-white px-4 shadow-md ${
-          !subMenuExpanded && 'rounded-b-lg'
-        }`}>
+        className={cls`relative z-20 box-border flex h-full max-w-screen-xl flex-1 justify-between bg-white px-4 shadow-md ${{
+          'rounded-b-lg': !subMenuExpanded,
+        }}`}>
         {/* Logo */}
         <div className=''>
           <MenuItem href='/'>

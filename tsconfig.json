@@ -21,9 +21,12 @@
       "@styles/*": ["src/styles/*"],
       "@hooks/*": ["src/hooks/*"],
       "@utils": ["src/utils"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@helpers": ["src/helpers"],
+      "@helpers/*": ["src/helpers/*"],
+      "@types": ["src/types"]
     }
   },
-  "include": ["next-env-custom.d.ts", "**/*.ts", "**/*.tsx", "@types"],
+  "include": ["next-env-custom.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "next-env.d.ts"]
 }
