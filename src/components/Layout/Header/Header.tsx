@@ -2,9 +2,10 @@ import { ReactNode, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
+import { useDarkMode } from '@hooks/common';
 import { cls } from '@utils';
 
-import { CustomLink } from '@components/common';
+import { CustomLink, Switch } from '@components/common';
 
 interface BaseHeaderMenuItem {
   label?: ReactNode;
@@ -154,22 +155,23 @@ const menuItems: Array<HeaderMenuItem> = [
 export default function Header() {
   const { asPath } = useRouter();
   const [subMenuExpanded, setSubMenuExpanded] = useState<boolean>(false);
+  const { isDarkMode, setIsDarkMode, resetDarkMode } = useDarkMode();
 
   return (
     <header className={cls`fixed z-20 flex h-12 w-full justify-center`}>
       <div
-        className={cls`relative z-20 box-border flex h-full max-w-screen-xl flex-1 justify-between bg-white px-4 shadow-md ${{
+        className={cls`relative z-20 box-border flex h-full max-w-screen-xl flex-1 items-center justify-between bg-white px-4 shadow-md ${{
           'rounded-b-lg': !subMenuExpanded,
         }}`}>
         {/* Logo */}
         <div className=''>
           <MenuItem href='/'>
-            <h1>LOGO</h1>
+            <p>LOGO</p>
           </MenuItem>
         </div>
 
-        <nav className='flex flex-1 px-12'>
-          <ul className='flex flex-1 justify-between'>
+        <nav className='flex h-full flex-1 px-12'>
+          <ul className='flex h-full flex-1 justify-between'>
             {menuItems.map(item => (
               <li
                 className=''
@@ -183,7 +185,15 @@ export default function Header() {
         </nav>
 
         {/* Header right section */}
-        <div>{/* Dark mode switch */}</div>
+        <div>
+          <Switch
+            className='bg-slate-600'
+            value={Boolean(isDarkMode)}
+            setValue={setIsDarkMode}
+            checkedChildren='🌜'
+            unCheckedChildren='🌞'
+          />
+        </div>
       </div>
     </header>
   );
@@ -200,7 +210,7 @@ function MenuItem({ label, href, children, subMenuItems, selected, className }: 
     <div className={cls`group flex h-full w-full place-items-center ${className}`}>
       <CustomLink
         href={href}
-        className={cls`flex h-full w-full place-items-center px-2 ${{
+        className={cls`flex h-full w-full place-items-center px-2 align-middle ${{
           'text-blue-500': selected,
         }}`}>
         {label ?? children}

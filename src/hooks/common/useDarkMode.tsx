@@ -1,5 +1,7 @@
 import {
+  Dispatch,
   ReactNode,
+  SetStateAction,
   createContext,
   useCallback,
   useContext,
@@ -10,7 +12,7 @@ import {
   useState,
 } from 'react';
 
-import { useLazyState } from '@hooks/utils';
+import { useLazyState, useSetter } from '@hooks/utils';
 
 interface DarkModeContextProps {
   /**
@@ -20,16 +22,20 @@ interface DarkModeContextProps {
    * @default null
    */
   isDarkMode: null | boolean;
-  setIsDarkMode: (isDarkMode: null | boolean) => void;
+  setIsDarkMode: Dispatch<SetStateAction<boolean>>;
+  resetDarkMode: () => void;
 }
 
 const DarkModeContext = createContext<DarkModeContextProps>({
   isDarkMode: null,
   setIsDarkMode: () => console.warn('DarkModeContext is uninitialized!'),
+  resetDarkMode: () => console.warn('DarkModeContext is uninitialized!'),
 });
 
 export function DarkModeProvider({ children }: { children: ReactNode }) {
   const [isDarkMode, setIsDarkMode, initialized] = useLazyState<null | boolean>(null);
+
+  const resetDarkMode = useCallback(() => setIsDarkMode(null), [setIsDarkMode]);
 
   useEffect(() => {
     if (!initialized) {
@@ -71,7 +77,12 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
 
   return (
     <div className={`${darkModeEnabled ? ' dark' : ''}`}>
-      <DarkModeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
+      <DarkModeContext.Provider
+        value={{
+          isDarkMode,
+          setIsDarkMode: setIsDarkMode as Dispatch<SetStateAction<boolean>>,
+          resetDarkMode,
+        }}>
         {children}
       </DarkModeContext.Provider>
     </div>

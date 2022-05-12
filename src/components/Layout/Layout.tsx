@@ -8,14 +8,12 @@ const { Content } = AntdLayout;
 
 export default function Layout({ children, router }: LayoutProps) {
   return (
-    <AntdLayout className='flex min-h-screen flex-col items-center'>
+    <section className='flex min-h-screen flex-col items-center dark:bg-stone-900'>
       <Header />
 
-      <Content className='flex h-fit w-full flex-1 flex-col pt-24 pb-2 text-center'>
-        {children}
-      </Content>
+      <main className='my-24 flex h-fit w-full flex-1 flex-col items-center px-32'>{children}</main>
 
       <Footer />
-    </AntdLayout>
+    </section>
   );
 }
