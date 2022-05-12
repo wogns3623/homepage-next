@@ -4,11 +4,29 @@
  * @type {import('next').NextConfig}
  **/
 const nextConfig = {
-  webpack(config) {
+  experimental: { esmExternals: true },
+
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+
+  webpack(config, options) {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
+    });
+
+    config.module.rules.push({
+      test: /\.mdx?$/i,
+      use: [
+        options.defaultLoaders.babel,
+        {
+          loader: '@mdx-js/loader',
+          /** @type {import('@mdx-js/loader').Options} */
+          options: {
+            providerImportSource: '@mdx-js/react',
+          },
+        },
+      ],
     });
 
     return config;
