@@ -2,3 +2,6 @@
 .yarn/*
 
 .pnp*
+
+# extensions
+**/*.svg
