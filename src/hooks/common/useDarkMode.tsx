@@ -51,7 +51,7 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
         localStorage.setItem('DarkMode', String(darkMode));
       }
     }
-  }, [darkMode, setDarkMode, initialized]);
+  }, [darkMode, initialized]);
 
   const [systemPreferColor, setSystemPreferColor] = useState<boolean>(false);
   useEffect(() => {

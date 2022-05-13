@@ -8,7 +8,7 @@ import { MDXComponents } from 'mdx/types';
 
 import { DarkModeProvider } from '@hooks/common/useDarkMode';
 
-import { Layout } from '@components/Layout';
+import { Layout } from '@components/layout';
 import '@styles/globals.css';
 
 const ResponsiveImage = (props: any) => <Image alt={props.alt} layout='responsive' {...props} />;

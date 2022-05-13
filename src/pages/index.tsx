@@ -1,4 +1,7 @@
 import Head from 'next/head';
+import Image from 'next/image';
+
+import HEADER_MAIN from '@public/images/header/header_main.png';
 
 export default function HomePage() {
   return (
@@ -8,49 +11,18 @@ export default function HomePage() {
         <link rel='icon' href='/images/favicon.png' />
       </Head>
 
-      {/* <h1 className='text-6xl font-bold'>
-        Welcome to{' '}
-        <a className='text-blue-600' href='https://nextjs.org'>
-          Next.js!
-        </a>
-      </h1>
+      {/* Head image */}
+      <div className='absolute top-0 left-0 flex h-96 w-screen items-center justify-center overflow-hidden'>
+        <div className='w-screen flex-1'>
+          <Image
+            src={HEADER_MAIN}
+            layout='responsive'
+            alt='비행기가 좌하단에서 우상단으로 날아가고 우상단 모서리에 태극기가 펄럭임. 안창남 비행사의 모습이 희미하게 태극기 아래에 보임'
+          />
+        </div>
+      </div>
 
-      <p className='mt-3 text-2xl'>
-        Get started by editing{' '}
-        <code className='rounded-md bg-gray-100 p-3 font-mono text-lg'>pages/index.js</code>
-      </p>
-
-      <div className='mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full'>
-        <a
-          href='https://nextjs.org/docs'
-          className='mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600'>
-          <h3 className='text-2xl font-bold'>Documentation &rarr;</h3>
-          <p className='mt-4 text-xl'>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href='https://nextjs.org/learn'
-          className='mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600'>
-          <h3 className='text-2xl font-bold'>Learn &rarr;</h3>
-          <p className='mt-4 text-xl'>Learn about Next.js in an interactive course with quizzes!</p>
-        </a>
-
-        <a
-          href='https://github.com/vercel/next.js/tree/master/examples'
-          className='mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600'>
-          <h3 className='text-2xl font-bold'>Examples &rarr;</h3>
-          <p className='mt-4 text-xl'>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
-
-        <a
-          href='https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-          className='mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600'>
-          <h3 className='text-2xl font-bold'>Deploy &rarr;</h3>
-          <p className='mt-4 text-xl'>
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </p>
-        </a>
-      </div> */}
+      <article className=''></article>
     </>
   );
 }
