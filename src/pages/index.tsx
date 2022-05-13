@@ -5,10 +5,10 @@ export default function HomePage() {
     <>
       <Head>
         <title>Create Next App</title>
-        <link rel='icon' href='/images/favicon.ico' />
+        <link rel='icon' href='/images/favicon.png' />
       </Head>
 
-      <h1 className='text-6xl font-bold'>
+      {/* <h1 className='text-6xl font-bold'>
         Welcome to{' '}
         <a className='text-blue-600' href='https://nextjs.org'>
           Next.js!
@@ -50,7 +50,7 @@ export default function HomePage() {
             Instantly deploy your Next.js site to a public URL with Vercel.
           </p>
         </a>
-      </div>
+      </div> */}
     </>
   );
 }

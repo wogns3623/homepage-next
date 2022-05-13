@@ -30,13 +30,13 @@ export default function Switch({
 
   return (
     <div
-      className={cls`relative flex h-6 w-12 justify-between rounded-full pl-0.5 pr-1.5 ${className}`}
+      className={cls`relative flex h-6 w-12 justify-between rounded-full px-0.5 ${className}`}
       onClick={() => setValue(prev => !prev)}>
-      <span className={cls`${{ invisible: !value }}`}>{checkedChildren}</span>
-      <span className={cls`${{ invisible: value }}`}>{unCheckedChildren}</span>
+      <span className={cls`${{ invisible: !value }} p-0.5`}>{checkedChildren}</span>
+      <span className={cls`${{ invisible: value }} p-0.5`}>{unCheckedChildren}</span>
 
       <div
-        className={cls`absolute flex h-full w-full items-center pr-1 transition-transform ${{
+        className={cls`absolute flex h-full w-full items-center transition-transform ${{
           'translate-x-6': value,
         }}`}>
         <div className='h-5 w-5 rounded-full bg-white' />

@@ -7,7 +7,7 @@ export default function Layout({ children, router }: LayoutProps) {
     <section className='flex min-h-screen flex-col items-center dark:bg-stone-900'>
       <Header />
 
-      <main className='my-24 flex h-fit w-full flex-1 flex-col items-center px-32'>{children}</main>
+      <main className='flex h-fit w-full flex-1 flex-col items-center py-24 px-32'>{children}</main>
 
       <Footer />
     </section>

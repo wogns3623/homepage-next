@@ -77,6 +77,7 @@ export const getStaticProps: GetStaticProps<PostPageProps, PostPageParams> = asy
 
     return { props: { post } };
   } catch (e) {
+    console.log(e);
     return { props: {}, notFound: true };
   }
 };

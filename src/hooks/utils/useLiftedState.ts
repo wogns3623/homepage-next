@@ -1,45 +1,29 @@
-import {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react';
 
+import { useRefOf } from './useRefOf';
 import { useSetter } from './useSetter';
 
 export function useLiftedState<T>(
   initialState: T | (() => T),
-  liftedState?: T,
-  setLiftedState?: Dispatch<T>,
+  liftedState: T | undefined,
+  setLiftedState: Dispatch<T> | undefined,
 ): [T, Dispatch<SetStateAction<T>>] {
-  const [internalState, setInternalState] = useState<T>(() => {
-    if (typeof initialState === 'function') {
-      return (initialState as () => T)();
-    } else {
-      return initialState;
-    }
-  });
+  const [internalState, setInternalState] = useState<T>(initialState);
 
   const state = useMemo(() => liftedState ?? internalState, [liftedState, internalState]);
-
-  const prevState = useRef<T>(state);
+  const refState = useRefOf<T>(internalState);
 
   const setState = useSetter(
-    state,
     value => {
       setInternalState(value);
-      setLiftedState && setLiftedState(value);
+      setLiftedState?.(value);
     },
-    [setInternalState, setLiftedState],
+    [],
+    state,
   );
 
-  // const setState = useCallback((value: SetStateAction<T>) => {
-
-  useLayoutEffect(() => {
-    if (prevState.current !== liftedState && liftedState !== undefined) {
+  useEffect(() => {
+    if (refState.current !== liftedState && liftedState !== undefined) {
       setInternalState(liftedState);
     }
   }, [liftedState]);

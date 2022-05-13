@@ -6,13 +6,11 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useLayoutEffect,
   useMemo,
-  useRef,
   useState,
 } from 'react';
 
-import { useLazyState, useSetter } from '@hooks/utils';
+import { useLazyState } from '@hooks/utils';
 
 interface DarkModeContextProps {
   /**
@@ -21,39 +19,39 @@ interface DarkModeContextProps {
    *
    * @default null
    */
-  isDarkMode: null | boolean;
-  setIsDarkMode: Dispatch<SetStateAction<boolean>>;
+  darkMode: null | boolean;
+  setDarkMode: Dispatch<SetStateAction<boolean>>;
   resetDarkMode: () => void;
 }
 
 const DarkModeContext = createContext<DarkModeContextProps>({
-  isDarkMode: null,
-  setIsDarkMode: () => console.warn('DarkModeContext is uninitialized!'),
+  darkMode: null,
+  setDarkMode: () => console.warn('DarkModeContext is uninitialized!'),
   resetDarkMode: () => console.warn('DarkModeContext is uninitialized!'),
 });
 
 export function DarkModeProvider({ children }: { children: ReactNode }) {
-  const [isDarkMode, setIsDarkMode, initialized] = useLazyState<null | boolean>(null);
+  const [darkMode, setDarkMode, initialized] = useLazyState<null | boolean>(null);
 
-  const resetDarkMode = useCallback(() => setIsDarkMode(null), [setIsDarkMode]);
+  const resetDarkMode = useCallback(() => setDarkMode(null), [setDarkMode]);
 
   useEffect(() => {
     if (!initialized) {
-      const stored = localStorage.getItem('isDarkMode');
+      const stored = localStorage.getItem('DarkMode');
 
       if (stored === null) {
-        setIsDarkMode(null);
+        setDarkMode(null);
       } else {
-        setIsDarkMode(stored === 'true');
+        setDarkMode(stored === 'true');
       }
     } else {
-      if (isDarkMode === null) {
-        localStorage.removeItem('isDarkMode');
+      if (darkMode === null) {
+        localStorage.removeItem('DarkMode');
       } else {
-        localStorage.setItem('isDarkMode', String(isDarkMode));
+        localStorage.setItem('DarkMode', String(darkMode));
       }
     }
-  }, [isDarkMode, setIsDarkMode, initialized]);
+  }, [darkMode, setDarkMode, initialized]);
 
   const [systemPreferColor, setSystemPreferColor] = useState<boolean>(false);
   useEffect(() => {
@@ -71,16 +69,16 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const darkModeEnabled = useMemo(
-    () => isDarkMode ?? systemPreferColor,
-    [isDarkMode, systemPreferColor],
+    () => darkMode ?? systemPreferColor,
+    [darkMode, systemPreferColor],
   );
 
   return (
     <div className={`${darkModeEnabled ? ' dark' : ''}`}>
       <DarkModeContext.Provider
         value={{
-          isDarkMode,
-          setIsDarkMode: setIsDarkMode as Dispatch<SetStateAction<boolean>>,
+          darkMode,
+          setDarkMode: setDarkMode as Dispatch<SetStateAction<boolean>>,
           resetDarkMode,
         }}>
         {children}

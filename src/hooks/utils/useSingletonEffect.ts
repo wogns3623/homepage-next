@@ -92,9 +92,9 @@ const manager = new SingletonEffectManager();
  * @param deps cannot add or remove elements
  */
 export function useSingletonEffect(
-  keys: SingletonEffectKey = [],
   callback: EffectCallback,
   deps?: DependencyList,
+  keys: SingletonEffectKey = [],
 ) {
   const symbolRef = useRef<symbol>();
 

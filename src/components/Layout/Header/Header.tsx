@@ -1,11 +1,16 @@
 import { ReactNode, useState } from 'react';
 
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { useDarkMode } from '@hooks/common';
 import { cls } from '@utils';
 
 import { CustomLink, Switch } from '@components/common';
+
+import Moon from '@public/icons/moon.svg';
+import Sun from '@public/icons/sun.svg';
+import Logo from '@public/images/logo.png';
 
 interface BaseHeaderMenuItem {
   label?: ReactNode;
@@ -154,47 +159,68 @@ const menuItems: Array<HeaderMenuItem> = [
 
 export default function Header() {
   const { asPath } = useRouter();
-  const [subMenuExpanded, setSubMenuExpanded] = useState<boolean>(false);
-  const { isDarkMode, setIsDarkMode, resetDarkMode } = useDarkMode();
+  const [subMenuItems, setSubMenuItems] = useState<Array<HeaderMenuItem> | undefined>();
+  const { darkMode, setDarkMode } = useDarkMode();
 
   return (
-    <header className={cls`fixed z-20 flex h-12 w-full justify-center`}>
-      <div
-        className={cls`relative z-20 box-border flex h-full max-w-screen-xl flex-1 items-center justify-between bg-white px-4 shadow-md ${{
-          'rounded-b-lg': !subMenuExpanded,
-        }}`}>
-        {/* Logo */}
-        <div className=''>
-          <MenuItem href='/'>
-            <p>LOGO</p>
-          </MenuItem>
-        </div>
+    <header className='fixed z-20 flex h-16 w-full justify-center'>
+      <nav className='relative z-20 box-border flex h-fit max-w-screen-xl flex-1 flex-col rounded-b-lg shadow-md transition-transform dark:border-0.5 dark:border-t-0 dark:border-none dark:bg-stone-900 dark:text-white dark:shadow-stone-700'>
+        {/* Main menu section */}
+        <section className='flex h-16 w-full items-center'>
+          {/* Logo */}
+          <div className=''>
+            <MenuItem href='/'>
+              <div className='h-32 w-52'>
+                <div className='relative h-full max-w-full'>
+                  <Image
+                    src={Logo}
+                    alt='Ablecloud logo'
+                    style={{
+                      filter:
+                        'invert(43%) sepia(89%) saturate(1883%) hue-rotate(163deg) brightness(97%) contrast(101%)',
+                    }}
+                    layout='fill'
+                    objectFit='contain'
+                    quality={100}
+                  />
+                </div>
+              </div>
+            </MenuItem>
+          </div>
 
-        <nav className='flex h-full flex-1 px-12'>
-          <ul className='flex h-full flex-1 justify-between'>
-            {menuItems.map(item => (
-              <li
-                className=''
-                onMouseOver={() => setSubMenuExpanded(Boolean(item.subMenuItems))}
-                onMouseOut={() => setSubMenuExpanded(false)}
-                key={item.href}>
-                <MenuItem {...item} selected={asPath === item.href} />
-              </li>
-            ))}
-          </ul>
-        </nav>
+          <div className='flex h-full flex-1 px-12'>
+            <ul className='flex h-full flex-1 justify-between'>
+              {menuItems.map(item => (
+                <li
+                  className=''
+                  onMouseOver={() => setSubMenuItems(item.subMenuItems)}
+                  onMouseOut={() => setSubMenuItems(undefined)}
+                  key={item.href}>
+                  <MenuItem {...item} selected={asPath === item.href} />
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Header right section */}
-        <div>
-          <Switch
-            className='bg-slate-600'
-            value={Boolean(isDarkMode)}
-            setValue={setIsDarkMode}
-            checkedChildren='🌜'
-            unCheckedChildren='🌞'
-          />
-        </div>
-      </div>
+          {/* Header right section */}
+          <div className='px-4'>
+            <Switch
+              className='bg-slate-600'
+              value={Boolean(darkMode)}
+              setValue={setDarkMode}
+              checkedChildren={<Moon className='h-full w-full fill-slate-100' />}
+              unCheckedChildren={<Sun className='h-full w-full fill-slate-100' />}
+            />
+          </div>
+        </section>
+
+        {/* Sub menu section */}
+        {subMenuItems && (
+          <section className='flex h-full w-full items-center border-t-0.5 border-slate-200 dark:border-stone-700'>
+            <SubMenu items={subMenuItems} />
+          </section>
+        )}
+      </nav>
     </header>
   );
 }
@@ -215,9 +241,6 @@ function MenuItem({ label, href, children, subMenuItems, selected, className }: 
         }}`}>
         {label ?? children}
       </CustomLink>
-
-      {/* Sub menu */}
-      {subMenuItems && <SubMenu items={subMenuItems} className='' />}
     </div>
   );
 }
@@ -240,7 +263,7 @@ function SubMenu({ items, className }: SubMenuProps) {
 
   return (
     <ul
-      className={cls`absolute top-full left-0 -z-10 hidden w-full grid-cols-3 gap-y-16 gap-x-8 rounded-b-lg border-t-1 border-t-slate-200 bg-white  px-32 py-8 shadow-md group-hover:grid ${className}`}>
+      className={cls`grid w-full grid-cols-3 gap-y-16 gap-x-8 rounded-b-lg px-32 py-8 dark:bg-stone-900 ${className}`}>
       {items.map(item => {
         if (item.type === 'group') {
           return (

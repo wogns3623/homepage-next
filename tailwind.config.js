@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       borderWidth: {
         1: '1px',
+        0.5: '0.5px',
       },
     },
   },

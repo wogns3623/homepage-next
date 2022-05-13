@@ -3,11 +3,11 @@ import { DependencyList, Dispatch, SetStateAction, useCallback, useRef } from 'r
 export type AsyncDispatch<T> = (value: T) => Promise<void>;
 
 export function useSetter<T>(
-  initialState: T,
   callback: Dispatch<T> | AsyncDispatch<T>,
   deps: DependencyList = [],
+  state: T,
 ) {
-  const prevState = useRef<T>(initialState);
+  const prevState = useRef<T>(state);
 
   return useCallback<Dispatch<SetStateAction<T>>>(async value => {
     const computed =
