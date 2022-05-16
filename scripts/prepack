@@ -1,2 +1,5 @@
-husky install
-sdks vscode
+echo "Installing Husky hooks"
+yarn dlx husky-init --yarn2
+
+echo "Prepare yarn berry sdk setting for vscode"
+yarn sdks vscode

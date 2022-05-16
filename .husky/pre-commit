@@ -17,4 +17,4 @@ fi
 
 # lint & fix staged files
 # yarn lint --fix
-yarn pnpify lint-staged
+yarn lint-staged

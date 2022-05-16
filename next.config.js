@@ -11,8 +11,6 @@ const withMDX = require('@next/mdx')({
  * @type {import('next').NextConfig}
  **/
 const nextConfig = {
-  experimental: { esmExternals: true },
-
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
 
   webpack(config, options) {
