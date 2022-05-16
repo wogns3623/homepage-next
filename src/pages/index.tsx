@@ -12,7 +12,7 @@ export default function HomePage() {
       </Head>
 
       {/* Head image */}
-      <div className='absolute top-0 left-0 flex h-96 w-screen items-center justify-center overflow-hidden'>
+      <div className='absolute top-0 left-0 flex h-128 w-screen items-center justify-center overflow-hidden'>
         <div className='w-screen flex-1'>
           <Image
             src={HEADER_MAIN}

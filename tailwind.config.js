@@ -7,6 +7,10 @@ module.exports = {
         1: '1px',
         0.5: '0.5px',
       },
+      spacing: {
+        128: '32rem',
+        144: '36rem',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
