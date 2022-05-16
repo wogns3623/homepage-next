@@ -1,11 +1,13 @@
 {
-  "name": "homepage-next",
+  "name": "ablecloud-homepage",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "./scripts/dev",
-    "dev:local": "next dev",
+    "dev": "next dev",
     "build": "next build",
+    "docker:build": "./scripts/docker/build",
+    "docker:run": "./scripts/docker/run",
+    "docker:dev": "./scripts/docker/dev",
     "start": "next start",
     "lint": "next lint",
     "prepack": "./scripts/prepack"
