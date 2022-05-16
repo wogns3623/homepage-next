@@ -14,11 +14,11 @@
 
 
 # testing
-/coverage
+coverage
 
 # next.js
-/.next/
-/out/
+.next/
+out/
 
 # production
 # /build
@@ -43,5 +43,5 @@ yarn-error.log*
 *.tsbuildinfo
 
 # editor & project setting
-.vscode
-.husky
+.vscode/
+.husky/
