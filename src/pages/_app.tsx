@@ -20,11 +20,11 @@ const components: MDXComponents = {
 export default function CustomApp({ Component, pageProps, router }: AppProps) {
   return (
     <MDXProvider components={components}>
-      <DarkModeProvider>
-        <Layout router={router}>
-          <Component {...pageProps} />
-        </Layout>
-      </DarkModeProvider>
+      {/* <DarkModeProvider> */}
+      <Layout router={router}>
+        <Component {...pageProps} />
+      </Layout>
+      {/* </DarkModeProvider> */}
     </MDXProvider>
   );
 }

@@ -1,0 +1,4 @@
+docker run -p 3000:3000 \
+  -w /app -v "$(pwd):/app" \
+  node:16.15 \
+  sh -c "yarn install && yarn next dev"
