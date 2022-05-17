@@ -1,2 +1,1 @@
-yarn install
 docker build -t ablecloud-homepage .
